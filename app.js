@@ -1,9 +1,10 @@
 new Vue({
   el: '#app',
   data: {
-    name: '',
-  },
-
-  methods: {
+    names: ['Florian', 'Gustav', 'Peter'],
+    persons: [
+      { name: 'Florian', age: 21 },
+      { name: 'Gustav', age: 51 },
+    ],
   },
 });
