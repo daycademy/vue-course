@@ -2,6 +2,8 @@
   <section id="home">
     <TheHeader />
     <TheFooter />
+    <Map ref="myMap" />
+    <input ref="input">
     <UserList :users="users" />
     <AddUserButton @new-user="addUser" />
   </section>
@@ -12,6 +14,7 @@ import TheHeader from '../components/TheHeader.vue';
 import TheFooter from '../components/TheFooter.vue';
 import UserList from '../components/UserList.vue';
 import AddUserButton from '../components/AddUserButton.vue';
+import Map from '../components/Map.vue';
 
 export default {
   components: {
@@ -19,6 +22,15 @@ export default {
     TheFooter,
     UserList,
     AddUserButton,
+    Map,
+  },
+  mounted() {
+    console.log(
+      `${this.$refs.myMap.latitude} - ${this.$refs.myMap.longitude}`,
+    );
+    console.log(this.$refs.myMap.getLngLat());
+    this.$refs.input.placeholder = 'My Placeholder';
+    this.$refs.input.focus();
   },
   data() {
     return {
