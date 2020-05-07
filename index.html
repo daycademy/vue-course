@@ -10,7 +10,13 @@
 </head>
 <body>
   <div id="app">
-    <h1>{{ name }}</h1>
+    <h1>{{ person.name }}</h1>
+    <h1>{{ sayHi('Morgen') }}</h1>
+    <h1><a :href="website">Gehe zu Google</a></h1>
+    
+    <p v-html="atag"></p>
+
+    <input type="text" :value="person.name">
   </div>
 
   <script src="app.js"></script>
