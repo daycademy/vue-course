@@ -3,7 +3,7 @@
     <ul>
       <li v-for="user in users" :key="user.name" @click="user.showAge = true">
         {{ user.name }}
-        <span>{{ user.age }}</span>
+        <span v-if="user.showAge">{{ user.age }}</span>
       </li>
     </ul>
   </div>
