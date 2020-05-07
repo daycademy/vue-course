@@ -3,8 +3,7 @@
     <TheHeader />
     <TheFooter />
     <UserList :users="users" />
-    <Message v-if="show" @hook:mounted="printMounted()" content="Awesome title" />
-    <button @click="show = false">Click me</button>
+    <AddUserButton @new-user="addUser" />
   </section>
 </template>
 
@@ -12,18 +11,17 @@
 import TheHeader from '../components/TheHeader.vue';
 import TheFooter from '../components/TheFooter.vue';
 import UserList from '../components/UserList.vue';
-import Message from '../components/Message.vue';
+import AddUserButton from '../components/AddUserButton.vue';
 
 export default {
   components: {
     TheHeader,
     TheFooter,
     UserList,
-    Message,
+    AddUserButton,
   },
   data() {
     return {
-      show: true,
       users: [
         { name: 'Florian', age: 21, showAge: false },
         { name: 'Peter', age: 54, showAge: false },
@@ -31,8 +29,8 @@ export default {
     };
   },
   methods: {
-    printMounted() {
-      console.log('mounted hook called');
+    addUser(newUser) {
+      this.users.push(newUser);
     },
   },
 };
