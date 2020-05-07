@@ -1,9 +1,14 @@
 <template>
   <div>
     <ul>
-      <li v-for="user in users" :key="user.name" @click="user.showAge = true">
+      <li
+        v-for="user in users"
+        :key="user.name"
+        @click="user.showAge = true"
+        :class="colorize(user.age)"
+      >
         {{ user.name }}
-        <span>{{ user.age }}</span>
+        <span v-if="user.showAge">{{ user.age }}</span>
       </li>
     </ul>
   </div>
@@ -19,11 +24,27 @@ export default {
       ],
     };
   },
+  methods: {
+    colorize(age) {
+      return {
+        red: age < 50,
+        blue: age > 50,
+      };
+    },
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 div ul {
   margin-top: 100px;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
 }
 </style>
