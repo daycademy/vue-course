@@ -1,4 +1,8 @@
-# vuejs-tutorial-git
+# vuejs-course
+
+This repository is for the vuejs course.
+
+YouTube Playlist: https://www.youtube.com/watch?v=5BiG_HR5uDM&list=PL10piHcP2kVK6FvJk7GVbKCNrBe3NLAzQ
 
 ## Project setup
 ```
