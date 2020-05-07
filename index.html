@@ -35,6 +35,7 @@
           <button class="primary" @click="checkCredentials($event)">Login</button>
         </fieldset>
       </form>
+      <user-feedback></user-feedback>
       <p>{{ feedback }}</p>
       <ul>
         <li v-for="user in users" :key="user.name">

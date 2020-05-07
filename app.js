@@ -1,3 +1,22 @@
+Vue.component('user-feedback', {
+  template: `
+  <p>
+    {{ feedback }}
+    <button @click="changeFeedback">Klick mich</button>
+  </p>
+`,
+  data: function() {
+    return {
+      feedback: 'Das ist die Feedback Component.',
+    };
+  },
+  methods: {
+    changeFeedback() {
+      this.feedback = 'Anderes Feedback';
+    },
+  },
+});
+
 let vOne = new Vue({
   el: '#app',
   data: {
