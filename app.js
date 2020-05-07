@@ -1,40 +1,34 @@
 let vOne = new Vue({
-  el: '#vue-one-app',
+  el: '#app',
   data: {
-    firstname: '',
-    lastname: '',
-    names: ['Florian', 'Gustav', 'Peter'],
-    persons: [
-      { name: 'Florian', age: 21 },
-      { name: 'Gustav', age: 51 },
+    username: '',
+    password: '',
+    currentUser: 'florian',
+    feedback: '',
+    users: [
+      { name: 'florian', password: '123' },
+      { name: 'peter', password: 'abc' },
+      { name: 'olaf', password: '123456' },
     ],
   },
 
-  computed: {
-    fullname() {
-      return `${this.fullname} ${this.lastname}`;
-    },
-    print() {
-      return this.names[0];
-    },
-  },
-});
-
-let vTwo = new Vue({
-  el: '#vue-two-app',
-  data: {
-    helloStr: 'Hello World',
-  },
-
-  computed: {
-    print() {
-      return this.helloStr;
-    },
-  },
-
   methods: {
-    changeData() {
-      vOne.firstname = 'My Firstname';
+    checkCredentials() {
+      return this.users.filter(user => password === user.password);
+    },
+    checkCredentials(event) {
+      event.preventDefault();
+      if (
+        this.username === this.currentUser &&
+        this.checkPassword(this.password).length !== 0
+      ) {
+        this.feedback = 'Korrekte Credentials';
+      } else {
+        this.feedback = 'Falsche Credentials';
+      }
+    },
+    changeUser(name) {
+      this.currentUser = name;
     },
   },
 });

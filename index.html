@@ -5,20 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vue.js Testing Site</title>
 
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css"
+  />
   <!-- development version, includes helpful console warnings -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <div id="vue-one-app">
-    <input type="text" placeholder="firstname..." v-model="firstname">
-    <input type="text" placeholder="lastname..." v-model="lastname">
-    <p>{{ fullname }}</p>
-    <p>{{ print }}</p>
-  </div>
-
-  <div id="vue-two-app">
-    <p>{{ print }}</p>
-    <button @click="changeData">Click me!</button>
+  <div id="app">
+    <div class="container">
+      <form>
+        <fieldset>
+          <legend>Login</legend>
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            v-model="username"
+          ><br/>
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            v-model="password"
+          ><br/>
+          <button class="primary" @click="checkCredentials($event)">Login</button>
+        </fieldset>
+      </form>
+      <p>{{ feedback }}</p>
+      <ul>
+        <li v-for="user in users" :key="user.name">
+          <a
+            @click="changeUser(user.name)"
+          >{{ user.name }}</a>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <script src="app.js"></script>
