@@ -10,10 +10,10 @@
 </head>
 <body>
   <div id="app">
-    <h3>{{ myValue }}</h3>
-    <button v-on:click="add" v-on:mouseover="add">+</button>
-    <button v-on:click="subtract" v-on:mouseover="subtract">-</button>
-    <button v-on:click.once="add">1mal +</button>
+    <input type="text" v-model="name">
+    <p v-if="name.length > 6">Ist sicher!</p>
+    <p v-else-if="name.length < 6">Ist nicht sicher</p>
+    <p v-else>Gerade noch so!</p> 
   </div>
 
   <script src="app.js"></script>

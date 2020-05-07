@@ -1,15 +1,9 @@
 new Vue({
   el: '#app',
   data: {
-    myValue: 42,
+    name: '',
   },
 
   methods: {
-    add: function() {
-      this.myValue++;
-    },
-    subtract: function() {
-      this.myValue--;
-    },
   },
 });
