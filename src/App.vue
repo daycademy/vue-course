@@ -1,25 +1,24 @@
 <template>
   <div>
-    <h4>{{ name }}</h4>
-    <h4>{{ sayHi() }}</h4>
+    <Home />
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      name: 'Florian',
-    };
-  },
+import Home from './views/Home.vue';
 
-  methods: {
-    sayHi() {
-      return `Hi ${this.name}`;
-    },
+export default {
+  components: {
+    Home,
   },
 };
 </script>
 
 <style lang="scss">
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat;
+}
 </style>
