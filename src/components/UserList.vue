@@ -16,13 +16,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      users: [
-        { name: 'Florian', age: 21, showAge: false },
-        { name: 'Peter', age: 54, showAge: false },
-      ],
-    };
+  props: {
+    users: {
+      type: Array,
+      required: true,
+    },
   },
   methods: {
     colorize(age) {

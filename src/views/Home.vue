@@ -2,8 +2,7 @@
   <section id="home">
     <TheHeader />
     <TheFooter />
-    <UserList />
-    <UserList />
+    <UserList :users="users" />
   </section>
 </template>
 
@@ -17,6 +16,14 @@ export default {
     TheHeader,
     TheFooter,
     UserList,
+  },
+  data() {
+    return {
+      users: [
+        { name: 'Florian', age: 21, showAge: false },
+        { name: 'Peter', age: 54, showAge: false },
+      ],
+    };
   },
 };
 </script>
