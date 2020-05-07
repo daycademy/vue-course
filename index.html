@@ -10,13 +10,9 @@
 </head>
 <body>
   <div id="app">
-    <p v-for="name in names">{{ name }}</p>
-    <template v-for="(person, index) in persons" :key="index">
-      <div v-for="(value, key) in person">
-        <p>{{ value }}</p>
-        <p>{{ key }}</p>
-      </div>
-    </template>
+    <input type="text" placeholder="firstname..." v-model="firstname">
+    <input type="text" placeholder="lastname..." v-model="lastname">
+    <p>{{ fullname }}</p>
   </div>
 
   <script src="app.js"></script>
