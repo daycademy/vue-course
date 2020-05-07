@@ -9,10 +9,16 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <div id="app">
+  <div id="vue-one-app">
     <input type="text" placeholder="firstname..." v-model="firstname">
     <input type="text" placeholder="lastname..." v-model="lastname">
     <p>{{ fullname }}</p>
+    <p>{{ print }}</p>
+  </div>
+
+  <div id="vue-two-app">
+    <p>{{ print }}</p>
+    <button @click="changeData">Click me!</button>
   </div>
 
   <script src="app.js"></script>

@@ -1,5 +1,5 @@
-new Vue({
-  el: '#app',
+let vOne = new Vue({
+  el: '#vue-one-app',
   data: {
     firstname: '',
     lastname: '',
@@ -13,6 +13,28 @@ new Vue({
   computed: {
     fullname() {
       return `${this.fullname} ${this.lastname}`;
+    },
+    print() {
+      return this.names[0];
+    },
+  },
+});
+
+let vTwo = new Vue({
+  el: '#vue-two-app',
+  data: {
+    helloStr: 'Hello World',
+  },
+
+  computed: {
+    print() {
+      return this.helloStr;
+    },
+  },
+
+  methods: {
+    changeData() {
+      vOne.firstname = 'My Firstname';
     },
   },
 });
