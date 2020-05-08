@@ -2,9 +2,10 @@
   <section id="home">
     <TheHeader />
     <TheFooter />
-    <Map ref="myMap" />
-    <input ref="input">
-    <UserList :users="users" />
+    <keep-alive>
+      <component :is="component" :users="users"></component>
+    </keep-alive>
+    <button @click="toggleComponent">Toggle</button>
     <AddUserButton @new-user="addUser" />
   </section>
 </template>
@@ -24,16 +25,9 @@ export default {
     AddUserButton,
     Map,
   },
-  mounted() {
-    console.log(
-      `${this.$refs.myMap.latitude} - ${this.$refs.myMap.longitude}`,
-    );
-    console.log(this.$refs.myMap.getLngLat());
-    this.$refs.input.placeholder = 'My Placeholder';
-    this.$refs.input.focus();
-  },
   data() {
     return {
+      component: Map,
       users: [
         { name: 'Florian', age: 21, showAge: false },
         { name: 'Peter', age: 54, showAge: false },
@@ -43,6 +37,11 @@ export default {
   methods: {
     addUser(newUser) {
       this.users.push(newUser);
+    },
+    toggleComponent() {
+      this.component = this.component === UserList
+        ? Map
+        : UserList;
     },
   },
 };
