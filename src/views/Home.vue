@@ -2,10 +2,14 @@
   <section id="home">
     <TheHeader />
     <TheFooter />
-    <keep-alive>
-      <component :is="component" :users="users"></component>
-    </keep-alive>
-    <button @click="toggleComponent">Toggle</button>
+    <Map>
+      <template #title="slotProps">
+        <h3>Titel {{ slotProps.number }}</h3>
+        <h3>Zweite Zeile</h3>
+      </template>
+      <p slot="subtitle">Subtitle</p>
+    </Map>
+    <UserList :users="users"></UserList>
     <AddUserButton @new-user="addUser" />
   </section>
 </template>
@@ -27,7 +31,6 @@ export default {
   },
   data() {
     return {
-      component: Map,
       users: [
         { name: 'Florian', age: 21, showAge: false },
         { name: 'Peter', age: 54, showAge: false },

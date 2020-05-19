@@ -1,5 +1,9 @@
 <template>
-  <h1>{{ latitude }} - {{ longitude }}</h1>
+  <div>
+    <h1>{{ latitude }} - {{ longitude }}</h1>
+    <slot name="subtitle" />
+    <slot name="title" :number="1729" />
+  </div>
 </template>
 
 <script>
