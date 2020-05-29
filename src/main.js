@@ -5,6 +5,22 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
+Vue.directive('background', {
+  /* eslint-disable */
+  bind(el, binding, vnode) {
+    const color = binding.value || 'green';
+    el.style.backgroundColor = color;
+  },
+});
+
+Vue.directive('test', {
+  bind(el, binding, vnode) {
+    console.log(binding.expression);
+    console.log(binding.value);
+    console.log(binding.arg);
+  },
+});
+
 new Vue({
   router,
   store,

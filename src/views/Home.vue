@@ -9,10 +9,7 @@
       </template>
       <p slot="subtitle">Subtitle</p>
     </Map>
-    <input v-model="inputText">
-    <p v-if="showFeedback">Text ist > 5</p>
-    <h2>{{ counter }}</h2>
-    <button @click="counter++">Add 1</button>
+    <p v-background="'#000'" v-test:arg1="1 + 1">Das ist ein Test</p>
     <UserList :users="users"></UserList>
     <AddUserButton @new-user="addUser" />
   </section>
@@ -33,19 +30,8 @@ export default {
     AddUserButton,
     Map,
   },
-  watch: {
-    counter(newVal, oldVal) {
-      console.log(`new: ${newVal}, old: ${oldVal}`);
-    },
-    inputText(newVal) {
-      this.showFeedback = newVal.length > 5;
-    },
-  },
   data() {
     return {
-      showFeedback: false,
-      inputText: '',
-      counter: 0,
       users: [
         { name: 'Florian', age: 21, showAge: false },
         { name: 'Peter', age: 54, showAge: false },
