@@ -7,7 +7,7 @@
         @click="user.showAge = true"
         :class="colorize(user.age)"
       >
-        {{ user.name }}
+        {{ user.name | upper('test') }}
         <span v-if="user.showAge">{{ user.age }}</span>
       </li>
     </ul>
@@ -16,6 +16,14 @@
 
 <script>
 export default {
+  filters: {
+    upper(value, param) {
+      if (!value) return '';
+
+      const newValue = value.toString();
+      return newValue.toUpperCase() + param;
+    },
+  },
   props: {
     users: {
       type: Array,
