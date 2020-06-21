@@ -5,6 +5,12 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
+Vue.mixin({
+  mounted() {
+    console.log('Global Mixin mounted');
+  },
+});
+
 Vue.directive('background', {
   /* eslint-disable */
   bind(el, binding, vnode) {

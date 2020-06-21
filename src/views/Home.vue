@@ -9,6 +9,7 @@
       </template>
       <p slot="subtitle">Subtitle</p>
     </Map>
+    <button @click="printTestVar">CLICK ME</button>
     <p v-background="'#000'" v-test:arg1="1 + 1">Das ist ein Test</p>
     <UserList :users="users"></UserList>
     <AddUserButton @new-user="addUser" />
@@ -22,6 +23,22 @@ import UserList from '../components/UserList.vue';
 import AddUserButton from '../components/AddUserButton.vue';
 import Map from '../components/Map.vue';
 
+const myMixin = {
+  data() {
+    return {
+      testVar: 'Hello World',
+    };
+  },
+  mounted() {
+    console.log(this.testVar);
+  },
+  methods: {
+    printTestVar() {
+      console.log(this.testVar);
+    },
+  },
+};
+
 export default {
   components: {
     TheHeader,
@@ -30,6 +47,7 @@ export default {
     AddUserButton,
     Map,
   },
+  mixins: [myMixin],
   data() {
     return {
       users: [
