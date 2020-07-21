@@ -1,15 +1,12 @@
 <template>
   <div>
-    <Home />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Home from './views/Home.vue';
-
 export default {
   components: {
-    Home,
   },
 };
 </script>
@@ -19,6 +16,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  margin-left: 1em;
   font-family: Montserrat;
 }
 </style>

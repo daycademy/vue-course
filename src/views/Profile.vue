@@ -1,6 +1,6 @@
 <template>
-  <section id="home">
-    <h1>Test</h1>
+  <section id="profile">
+    <h1>Profile</h1>
   </section>
 </template>
 
