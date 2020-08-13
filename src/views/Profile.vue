@@ -2,6 +2,7 @@
   <div id="profile">
     <h1>Profile {{ id }}</h1>
     <h6>{{ userData }}</h6>
+    <router-view></router-view>
   </div>
 </template>
 
