@@ -1,5 +1,7 @@
 <template>
   <div id="profile">
+    <router-link :to="`/profile/${$route.params.id}/todos`">Zu den Todos</router-link>
+    <router-link :to="`/profile/${$route.params.id}/posts`">Zu den Posts</router-link>
     <h1>Profile {{ id }}</h1>
     <h6>{{ userData }}</h6>
     <router-view></router-view>
@@ -23,3 +25,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.router-link-active {
+  color: #e74c3c;
+}
+</style>
