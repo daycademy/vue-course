@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue';
 import Profile from '@/views/Profile.vue';
 import Posts from '@/views/profile/Posts.vue';
 import Todos from '@/views/profile/Todos.vue';
+import PageNotFound from '@/views/PageNotFound.vue';
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,10 @@ const routes = [
         component: Todos,
       },
     ],
+  },
+  {
+    path: '*',
+    component: PageNotFound,
   },
 ];
 
