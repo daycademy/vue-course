@@ -28,6 +28,10 @@ const routes = [
     ],
   },
   {
+    path: '/about',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+  },
+  {
     path: '*',
     component: PageNotFound,
   },
