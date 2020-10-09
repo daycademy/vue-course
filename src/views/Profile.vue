@@ -4,7 +4,9 @@
     <router-link :to="`/profile/${$route.params.id}/posts`">Zu den Posts</router-link>
     <h1>Profile {{ id }}</h1>
     <h6>{{ userData }}</h6>
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -29,5 +31,12 @@ export default {
 <style>
 .router-link-active {
   color: #e74c3c;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s ease-out;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
