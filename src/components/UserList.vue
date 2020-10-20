@@ -2,8 +2,8 @@
   <div>
     <ul>
       <li
-        v-for="user in users"
-        :key="user.name"
+        v-for="(user, index) in users"
+        :key="index"
         @click="user.showAge = true"
         :class="colorize(user.age)"
       >
