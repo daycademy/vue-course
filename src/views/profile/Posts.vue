@@ -32,7 +32,7 @@ export default {
   },
   created() {
     const userId = this.$route.params.id;
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+    fetch(`${this.process.VUE_APP_BACKEND_URL}/posts?userId=${userId}`)
       .then((response) => response.json())
       .then((response) => {
         this.userData = response;
