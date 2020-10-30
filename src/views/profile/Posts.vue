@@ -1,12 +1,22 @@
 <template>
   <div>
     <h1>Posts</h1>
-    <h6>{{ filteredPosts }}</h6>
+    <Post
+      v-for="post in filteredPosts"
+      :key="post.id"
+      :title="post.title"
+      :body="post.body"
+    />
   </div>
 </template>
 
 <script>
+import Post from '@/components/Post.vue';
+
 export default {
+  components: {
+    Post,
+  },
   data() {
     return {
       userData: [],
