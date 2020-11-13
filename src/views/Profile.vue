@@ -1,9 +1,14 @@
 <template>
   <div id="profile">
-    <router-link :to="`/profile/${$route.params.id}/todos`">Zu den Todos</router-link>
-    <router-link :to="`/profile/${$route.params.id}/posts`">Zu den Posts</router-link>
-    <h1>Profile {{ id }}</h1>
-    <h6>{{ userData }}</h6>
+    <div class="py-4 space-x-4 text-sm text-blue-900">
+      <router-link :to="`/profile/${$route.params.id}/todos`">Zu den Todos</router-link>
+      <router-link :to="`/profile/${$route.params.id}/posts`">Zu den Posts</router-link>
+    </div>
+    <div class="flex items-center mb-2 space-x-2">
+      <h1 class="text-xl">{{ userData.name }}</h1>
+      <h6 class="text-gray-600">{{ userData.username }}</h6>
+    </div>
+    <p>Email: {{ userData.email }}, Website: {{ userData.website }}</p>
     <transition name="fade">
       <router-view></router-view>
     </transition>
@@ -19,10 +24,9 @@ export default {
     };
   },
   created() {
-    fetch(`https://jsonplaceholder.typicode.com/users/${this.id}`)
-      .then((response) => response.json())
+    this.$http.get(`https://jsonplaceholder.typicode.com/users/${this.id}`)
       .then((response) => {
-        this.userData = response;
+        this.userData = response.data;
       });
   },
 };
@@ -30,7 +34,7 @@ export default {
 
 <style>
 .router-link-active {
-  color: #e74c3c;
+  @apply text-blue-700;
 }
 
 .fade-enter-active, .fade-leave-active {

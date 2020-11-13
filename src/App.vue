@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container mx-auto">
     <router-view></router-view>
   </div>
 </template>
@@ -10,13 +10,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-html,
-body {
-  padding: 0;
-  margin: 0;
-  margin-left: 1em;
-  font-family: Montserrat;
-}
-</style>

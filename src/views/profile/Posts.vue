@@ -42,10 +42,9 @@ export default {
   },
   created() {
     const userId = this.$route.params.id;
-    fetch(`${this.process.VUE_APP_BACKEND_URL}/posts?userId=${userId}`)
-      .then((response) => response.json())
+    this.$http.get(`${process.env.VUE_APP_BACKEND_URL}/posts?userId=${userId}`)
       .then((response) => {
-        this.userData = response;
+        this.userData = response.data;
       });
   },
 };
