@@ -17,8 +17,16 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    changeName(state, newName) {
+      state.user.name = newName;
+    },
   },
   actions: {
+    async changeName(context, newName) {
+      await setTimeout(() => {
+        context.commit('changeName', newName);
+      }, 3000);
+    },
   },
   modules: {
   },
