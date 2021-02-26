@@ -11,7 +11,7 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    getInitials(state) {
+    initials(state) {
       const splittedName = state.user.name.split(' ');
       return splittedName[0].charAt(0) + splittedName[1].charAt(0);
     },
