@@ -26,12 +26,16 @@ export default {
     };
   },
   computed: {
-    ...mapState(['user']),
-    ...mapGetters(['initials']),
+    ...mapState({
+      user(state) {
+        return state.user.user;
+      },
+    }),
+    ...mapGetters('user', ['initials']),
   },
   methods: {
-    ...mapMutations({ changeNameMutation: 'changeName' }),
-    ...mapActions(['changeName']),
+    ...mapMutations('user', { changeNameMutation: 'changeName' }),
+    ...mapActions('user', ['changeName']),
   },
 };
 </script>
